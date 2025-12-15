@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: fullsystem-service
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/fullsystemdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: Qwe.123*
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
+
+# Logging Configuration for Development
+logging:
+  level:
+    root: DEBUG
+    com.fullsystem.fullsystem: TRACE
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

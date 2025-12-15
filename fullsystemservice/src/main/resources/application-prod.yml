@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: fullsystem-service
+  
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+# Logging Configuration for Production
+logging:
+  level:
+    root: WARN
+    com.fullsystem.fullsystem: INFO
+    org.springframework.web: INFO

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full System | Premium Quotation Service</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="lottie-logo">✨</div>
+            <h1>Full System</h1>
+            <p>Premium Service Quotation</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="main-grid">
+            <!-- Form Section -->
+            <section class="card form-card">
+                <h2>New Quotation</h2>
+                <form id="quotationForm">
+                    <div class="form-group">
+                        <label for="clientName">Client Name</label>
+                        <input type="text" id="clientName" placeholder="Enter client name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serviceType">Service Type</label>
+                        <div class="select-wrapper">
+                            <select id="serviceType" required>
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="WEB_DEVELOPMENT">Web Development - $80,000</option>
+                                <option value="GRAPHIC_DESIGN">Graphic Design - $60,000</option>
+                                <option value="TECHNICAL_SUPPORT">Technical Support - $40,000</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hours">Hours Required</label>
+                        <input type="number" id="hours" min="1" placeholder="e.g. 10" required>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="recurringClient">
+                        <label for="recurringClient">Recurring Client (10% Discount)</label>
+                    </div>
+
+                    <button type="submit" class="btn-primary" id="calculateBtn">
+                        <span class="btn-text">Calculate Quotation</span>
+                        <div class="loading-spinner hidden"></div>
+                    </button>
+                    <div id="errorMsg" class="error-message hidden"></div>
+                </form>
+            </section>
+
+            <!-- Result Section -->
+            <section class="card result-card hidden" id="resultCard">
+                <div class="result-header">
+                    <h2>Quotation Summary</h2>
+                    <span class="badge" id="serviceBadge">Web Dev</span>
+                </div>
+
+                <div class="result-details">
+                    <div class="detail-row">
+                        <span>Client</span>
+                        <strong id="resClient">John Doe</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Hours</span>
+                        <strong id="resHours">10</strong>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="detail-row">
+                        <span>Subtotal</span>
+                        <span id="resSubtotal">$800,000</span>
+                    </div>
+                    <div class="detail-row discount hidden" id="rowDiscount">
+                        <span>Discount (10%)</span>
+                        <span id="resDiscount">-$80,000</span>
+                    </div>
+                    <div class="detail-row surcharge hidden" id="rowSurcharge">
+                        <span>Surcharge (>40h)</span>
+                        <span id="resSurcharge">+$120,000</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="detail-row total">
+                        <span>Total Estimate</span>
+                        <strong id="resTotal">$840,000</strong>
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <button class="btn-secondary" id="resetBtn">New Calculation</button>
+                </div>
+            </section>
+            <!-- List Section -->
+            <section class="card list-card">
+                <div class="list-header">
+                    <h2>Recent Quotations</h2>
+                    <button class="btn-icon" id="refreshBtn" title="Refresh List">↻</button>
+                </div>
+                <div class="table-container">
+                    <table id="quotationsTable">
+                        <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>Service</th>
+                                <th>Total</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="quotationsBody">
+                            <!-- Rows will be populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Full System Company</p>
+        </footer>
+    </div>
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- MVC Scripts -->
+    <script src="js/model/QuotationModel.js"></script>
+    <script src="js/view/QuotationView.js"></script>
+    <script src="js/controller/QuotationController.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

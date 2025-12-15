@@ -20,6 +20,8 @@ Este sistema consta de dos partes: Backend (Java) y Frontend (Node.js).
     *(En Windows PowerShell: `.\mvnw clean compile spring-boot:run`)*
 3.  Esperar a que aparezca el mensaje `Started FullsystemApplication in ... seconds`.
 4.  El backend estará disponible en: `http://localhost:8080`.
+    *   **Swagger UI (Documentación API):** [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+    *   **Prometheus (Métricas):** [http://localhost:8080/actuator/prometheus](http://localhost:8080/actuator/prometheus)
 
 ### Paso 2: Levantar el Frontend (Web App)
 1.  Abrir una **nueva** terminal en la carpeta `full-system-web-app`.
